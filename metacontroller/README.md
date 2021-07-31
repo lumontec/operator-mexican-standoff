@@ -1,6 +1,6 @@
 # Run the example
 
-Guide (https://metacontroller.github.io/metacontroller/guide/create.html)[https://metacontroller.github.io/metacontroller/guide/create.html]
+Guide [https://metacontroller.github.io/metacontroller/guide/create.html](https://metacontroller.github.io/metacontroller/guide/create.html)
 
 ### 1- Install metacontroller
 
