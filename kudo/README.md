@@ -1,11 +1,16 @@
 # Run the example
 
-Guide [https://metacontroller.github.io/metacontroller/guide/create.html](https://metacontroller.github.io/metacontroller/guide/create.html)
+Guide [https://kudo.dev/docs/#notes-on-cert-manager](https://kudo.dev/docs/#notes-on-cert-manager)
 
-### 1- Install metacontroller
+### 1- Install kudo kubectl plugin and controller 
 
 ```bash
-kubectl apply -k https://github.com/metacontroller/metacontroller/manifests/production
+kubectl krew install kudo
+kubectl kudo init --unsafe-self-signed-webhook-ca
+```
+Create empty operator scheleton:
+```bash
+kubectl kudo package new first-operator
 ```
 
 ### 2- Basic test
@@ -161,14 +166,14 @@ kubectl -n hello patch helloworld your-name --type=merge -p '{"spec":{"who":"My 
 kubectl -n hello logs your-name
 ```
 
-## PROS
+## Pros
 
-High level approach, generic controller can be implemented through custom webhooks as http server in any language
+Interesting declarative approach, no coding required, supports heavy configuration and testing
+
+## Cons
+
+Could not terminate controller upgrade, no easy way of accessing logs, works through kubernetes plugin, not quite usable for production yet
 
 
-## CONS
-
-Support seems quite small
-Exploits configmaps for loading the code, not very clean
-Requires installation of additional metacontroller controller itself
+I see it as an extension of helm charts, can get interesting in the future
 

@@ -61,3 +61,9 @@ spec:
     command: ["echo", "Hello, %s!" <text name selected from the user>] 
 ```
 
+
+## Simply generate a test cluster
+
+```bash
+kind create cluster --config=kind-config-3nodes.yaml --image=kindest/node:v1.20.2
+```

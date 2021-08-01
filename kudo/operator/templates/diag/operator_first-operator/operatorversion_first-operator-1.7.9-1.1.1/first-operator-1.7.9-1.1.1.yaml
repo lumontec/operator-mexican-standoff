@@ -1,0 +1,72 @@
+apiVersion: kudo.dev/v1beta1
+kind: OperatorVersion
+metadata:
+  creationTimestamp: "2021-08-01T14:27:56Z"
+  generation: 1
+  managedFields:
+  - apiVersion: kudo.dev/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:appVersion: {}
+        f:operator:
+          .: {}
+          f:kind: {}
+          f:name: {}
+        f:parameters: {}
+        f:plans:
+          .: {}
+          f:deploy:
+            .: {}
+            f:phases: {}
+            f:strategy: {}
+        f:tasks: {}
+        f:templates:
+          .: {}
+          f:deployment.yaml: {}
+        f:version: {}
+      f:status: {}
+    manager: kubectl-kudo
+    operation: Update
+    time: "2021-08-01T14:27:56Z"
+  name: first-operator-1.7.9-1.1.1
+  namespace: default
+  resourceVersion: "10784"
+  uid: 9e8ba00e-1975-49fd-a9c8-6a8297571f04
+spec:
+  appVersion: 1.7.9
+  operator:
+    kind: Operator
+    name: first-operator
+  parameters:
+  - default: somepod
+    description: Name of the generated pod
+    immutable: false
+    name: podname
+    required: true
+  - default: someadminname
+    description: Personal name of the admin
+    immutable: false
+    name: myname
+    required: true
+  plans:
+    deploy:
+      phases:
+      - name: main
+        steps:
+        - name: everything
+          tasks:
+          - app
+        strategy: parallel
+      strategy: serial
+  tasks:
+  - kind: Apply
+    name: app
+    spec:
+      resources:
+      - deployment.yaml
+  templates:
+    deployment.yaml: "#apiVersion: apps/v1\n#kind: Deployment\n#metadata:\n#  name: nginx-deployment\n#spec:\n#  selector:\n#    matchLabels:\n#      app: nginx\n#  replicas: {{ .Params.replicas }} # tells deployment to run 2 pods matching the template\n#  template:\n#    metadata:\n#      labels:\n#        app: nginx\n#    spec:\n#      containers:\n#        - name: nginx\n#          image: nginx:{{ .AppVersion }}\n#          ports:\n#            - containerPort: 80\n#\n#\napiVersion: v1\nkind: Pod\nmetadata:\n  name: {{ .Params.podname }} # Sets the pod name \nspec:\n  restartPolicy: OnFailure\n  containers:\n  - name: hello\n    image: busybox\n    command: [\"echo\", \"Hello, %s!\" {{ .Params.myname }}] # Sets my name\n\n"
+  version: 1.1.1
+status: {}
