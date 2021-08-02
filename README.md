@@ -1,6 +1,22 @@
 # Operator mexican standoff
 
-Bloody shootout between kubernetes operators to test them on very basic examples
+Bloody shootout between kubernetes operators to test them on very basic examples.
+
+## Classification
+
+First of all, a simple classification. The project is divided in two folders:
+* operators
+* package-managers
+
+Given the always misguised topic of helm-vs-operator I meant to divide technologies which clearly aim to solve at different functions (see [https://cloudblogs.microsoft.com/opensource/2020/04/02/when-to-use-helm-operators-kubernetes-ops/](https://cloudblogs.microsoft.com/opensource/2020/04/02/when-to-use-helm-operators-kubernetes-ops/))
+
+## Set up test environment
+
+Create simple local test environment
+
+```bash
+kind create cluster --config=./kind-config-3nodes.yaml --image kindest/node:v1.20.0
+```
 
 
 ## Test case
