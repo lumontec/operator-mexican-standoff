@@ -1,5 +1,0 @@
-kubeconfig: /home/crash/.kube/config
-home: /home/crash/.kudo
-namespace: default
-requesttimeout: 0
-validate: true

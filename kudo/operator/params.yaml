@@ -1,8 +1,2 @@
 apiVersion: kudo.dev/v1beta1
-parameters:
-  - name: podname
-    description: Name of the generated pod 
-    default: "somepod"
-  - name: myname
-    description: Personal name of the admin
-    default: "someadminname"
+parameters: []

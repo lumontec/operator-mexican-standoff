@@ -1,25 +1,23 @@
 apiVersion: kudo.dev/v1beta1
-name: "first-operator"
-operatorVersion: "1.1.1"
-appVersion: "1.7.9"
-kubernetesVersion: 1.13.0
+appVersion: 0.1.0
+kubernetesVersion: 0.16.0
+kudoVersion: 0.19.0
 maintainers:
-  - name: Your name
-    email: <your@email.com>
-url: https://kudo.dev
-tasks:
-  - name: app
-    kind: Apply
-    spec:
-      resources:
-        - deployment.yaml
+- email: MyEmail@invalid
+  name: My Name
+name: first-operator
+operatorVersion: 0.1.0
 plans:
   deploy:
-    strategy: serial
     phases:
-      - name: main
-        strategy: parallel
-        steps:
-          - name: everything
-            tasks:
-              - app
+    - name: deploy
+      steps:
+      - name: deploy
+        tasks:
+        - deploy
+      strategy: serial
+    strategy: serial
+tasks:
+- kind: Apply
+  name: deploy
+  spec: {}
