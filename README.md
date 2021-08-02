@@ -19,7 +19,7 @@ kind create cluster --config=./kind-config-3nodes.yaml --image kindest/node:v1.2
 ```
 
 
-## Test case
+## Test case (operators)
 
 Create and update a simple custom resource leveraging the operators
 
@@ -78,8 +78,3 @@ spec:
 ```
 
 
-## Simply generate a test cluster
-
-```bash
-kind create cluster --config=kind-config-3nodes.yaml --image=kindest/node:v1.20.2
-```
