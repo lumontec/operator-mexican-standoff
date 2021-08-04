@@ -25,6 +25,9 @@ type HelloSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
+	// Boo is an example field of Hello. Edit hello_types.go to remove/update
+	Boo string `json:"boo,omitempty"`
+
 	// Foo is an example field of Hello. Edit hello_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
 }

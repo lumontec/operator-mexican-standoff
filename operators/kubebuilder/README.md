@@ -3,7 +3,7 @@ Version: main.version{KubeBuilderVersion:"3.1.0", KubernetesVendor:"1.19.2", Git
 
 # Run the example
 
-Guide [https://book.kubebuilder.io/quick-start.html](https://book.kubebuilder.io/quick-start.html)
+Guide [https://book-v1.book.kubebuilder.io/](https://book-v1.book.kubebuilder.io/)
 
 ### 1- Install kubebuilder cli
 
