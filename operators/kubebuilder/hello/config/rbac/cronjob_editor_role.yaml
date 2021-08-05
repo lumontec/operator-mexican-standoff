@@ -1,13 +1,13 @@
-# permissions for end users to edit hellos.
+# permissions for end users to edit cronjobs.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: hello-editor-role
+  name: cronjob-editor-role
 rules:
 - apiGroups:
-  - webapp.my.domain
+  - batch.example.com
   resources:
-  - hellos
+  - cronjobs
   verbs:
   - create
   - delete
@@ -17,8 +17,8 @@ rules:
   - update
   - watch
 - apiGroups:
-  - webapp.my.domain
+  - batch.example.com
   resources:
-  - hellos/status
+  - cronjobs/status
   verbs:
   - get

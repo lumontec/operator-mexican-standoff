@@ -15,22 +15,26 @@ chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
 ### 2- Basic test
 
 Create project:
+
 ```bash
-kubebuilder init --domain my.domain --repo my.domain/hello
+kubebuilder init --domain example.com --repo example.com/helloworlds
 ```
 
 Create the api:
+
 ```bash
-kubebuilder create api --group webapp --version v1 --kind Hello
+kubebuilder create api --group batch --version v1 --kind CronJob
 ```
 
-Configure our crd spec insde ./hello/api/v1/hello_types.go
-```go
-...
+* Configure our crd spec insde ./hello/api/v1/hello_types.go
+* Implement controller inside ./hello/controllers/cronjob_controller.go
 
 
-...
+run the example
+```bash
+make run
 ```
+
 
 
 

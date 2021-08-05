@@ -1,20 +1,20 @@
-# permissions for end users to view hellos.
+# permissions for end users to view cronjobs.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: hello-viewer-role
+  name: cronjob-viewer-role
 rules:
 - apiGroups:
-  - webapp.my.domain
+  - batch.example.com
   resources:
-  - hellos
+  - cronjobs
   verbs:
   - get
   - list
   - watch
 - apiGroups:
-  - webapp.my.domain
+  - batch.example.com
   resources:
-  - hellos/status
+  - cronjobs/status
   verbs:
   - get
