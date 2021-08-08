@@ -17,18 +17,23 @@ chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
 Create project:
 
 ```bash
-kubebuilder init --domain example.com --repo example.com/helloworlds
+kubebuilder init --domain example.com --repo example.com/hello
 ```
 
 Create the api:
 
 ```bash
-kubebuilder create api --group batch --version v1 --kind CronJob
+kubebuilder create api --group hellogroup --version v1 --kind Hello
 ```
 
 * Configure our crd spec insde ./hello/api/v1/hello_types.go
-* Implement controller inside ./hello/controllers/cronjob_controller.go
+* Implement controller inside ./hello/controllers/hello_controller.go
 
+
+Install all the resources in the cluster:
+```bash
+make install
+```
 
 run the example
 ```bash

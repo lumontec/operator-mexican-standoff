@@ -2,15 +2,15 @@ domain: example.com
 layout:
 - go.kubebuilder.io/v3
 projectName: hello
-repo: example.com/hello
+repo: example.com/helloworlds
 resources:
 - api:
     crdVersion: v1
     namespaced: true
   controller: true
   domain: example.com
-  group: hellogroup
-  kind: Hello
-  path: example.com/hello/api/v1
+  group: batch
+  kind: CronJob
+  path: example.com/helloworlds/api/v1
   version: v1
 version: "3"

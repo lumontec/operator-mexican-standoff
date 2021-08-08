@@ -7,9 +7,9 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
-  - hellogroup.example.com
+  - batch
   resources:
-  - hellos
+  - jobs
   verbs:
   - create
   - delete
@@ -19,15 +19,33 @@ rules:
   - update
   - watch
 - apiGroups:
-  - hellogroup.example.com
+  - batch
   resources:
-  - hellos/finalizers
+  - jobs/status
+  verbs:
+  - get
+- apiGroups:
+  - batch.example.com
+  resources:
+  - cronjobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - batch.example.com
+  resources:
+  - cronjobs/finalizers
   verbs:
   - update
 - apiGroups:
-  - hellogroup.example.com
+  - batch.example.com
   resources:
-  - hellos/status
+  - cronjobs/status
   verbs:
   - get
   - patch
