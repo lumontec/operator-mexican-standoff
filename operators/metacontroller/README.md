@@ -10,6 +10,11 @@ kubectl apply -k https://github.com/metacontroller/metacontroller/manifests/prod
 
 ### 2- Basic test
 
+First of all create the namespace:
+```bash
+kubectl create namespace hello
+```
+
 Define custom resource definition *crd.yaml* and kubectl apply it:
 
 ```bash
@@ -21,7 +26,7 @@ kubectl apply -n hello -f ./controller.yaml
 ```
 Add the webhook implementations as a pure configMap:
 ```bash
-kubectl create configmap hello-controller --from-file=sync.py
+kubectl create -n hello configmap hello-controller --from-file=sync.py
 ```
 Deploy the webhook applying it:
 ```bash
