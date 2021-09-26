@@ -45,12 +45,10 @@ make run
 
 ## PROS
 
-High level approach, generic controller can be implemented through custom webhooks as http server in any language
+De facto standard
 
 
 ## CONS
 
-Support seems quite small
-Exploits configmaps for loading the code, not very clean
-Requires installation of additional metacontroller controller itself
+None
 
