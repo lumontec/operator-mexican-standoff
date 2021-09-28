@@ -66,6 +66,13 @@ func (r *HelloReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl
 		return ctrl.Result{}, client.IgnoreNotFound(err)
 	}
 
+	// updating the status
+	hello.Status.Phase = "newphase"
+	err := r.Status().Update(ctx, &hello)
+	if err != nil {
+		return ctrl.Result{}, err
+	}
+
 	log.Info("retrieved resource by key", req.NamespacedName.String(), hello)
 
 	// Construct our pod for Hello object
